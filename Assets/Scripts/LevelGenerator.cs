@@ -12,7 +12,9 @@ public enum Tile
 
 public static class LevelGenerator
 {
-    public static int startOffset, endOffset = 10;
+    public static int startOffset = 30;
+    public static int endOffset = 30;
+    public static int xOrigin = -20;
 
     public static Tile[] GeneratrLevel(int duration)
     {
@@ -26,7 +28,7 @@ public static class LevelGenerator
 
         for (int i = 0; i < duration; i++)
         {
-            int chance = Random.Range(0, 4);
+            int chance = Random.Range(0, 5);
             switch (chance)
             {
                 case 0:

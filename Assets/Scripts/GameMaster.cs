@@ -11,6 +11,7 @@ public class GameMaster : MonoBehaviour
     {
         FirstRunApp.SetUp();
         stateOfGame = SaveManager.Load();
+        GetComponent<LevelInstantinater>().InstantinateLevel();
     }
 
     public void SetHighScore(int newHS)

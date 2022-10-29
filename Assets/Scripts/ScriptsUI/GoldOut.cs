@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class GoldOut : MonoBehaviour
 {
     private Text gold_text;
     [SerializeField] private GameObject main;
