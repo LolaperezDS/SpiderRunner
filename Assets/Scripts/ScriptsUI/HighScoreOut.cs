@@ -12,6 +12,6 @@ public class HighScoreOut : MonoBehaviour
 
     private void Update()
     {
-        hs_text.text = main.GetComponent<GameMaster>().GetHighScore().ToString();
+        hs_text.text = main.GetComponent<GameMaster>().GetCurrentScore().ToString();
     }
 }
