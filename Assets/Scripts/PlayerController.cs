@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("lvl is end");
         Invoke(nameof(LevelDesroy), 1);
+        Invoke(nameof(LevelCreate), 1);
         anim_new_lvl.GetComponent<NewLevelAnimationScript>().NewLevelAnim();
     }
 
@@ -73,9 +74,16 @@ public class PlayerController : MonoBehaviour
         main.GetComponent<LevelInstantinater>().DestroyCurrentLevel();
     }
 
+    private void LevelCreate()
+    {
+        main.GetComponent<LevelInstantinater>().InstantinateLevel();
+    }
+
     private void EndOfGame()
     {
         anim_endgame.GetComponent<GameOverAnimation>().GameOverAnim();
+        main.GetComponent<GameMaster>().isPlying = false;
+        Invoke(nameof(LevelDesroy), 1);
         Debug.Log("you are dead");
     }
 }

@@ -3,7 +3,8 @@ using UnityEngine.UI;
 
 public class GameOverAnimation : MonoBehaviour
 {
-    private Canvas canv;
+    public Canvas canv;
+
     [SerializeField] private GameObject main;
 
     [SerializeField] private GameObject image;

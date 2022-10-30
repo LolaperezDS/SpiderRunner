@@ -35,6 +35,5 @@ public class LevelInstantinater : MonoBehaviour
             Destroy(i.gameObject);
         }
         Destroy(levelEndTrigger.gameObject);
-        InstantinateLevel();
     }
 }

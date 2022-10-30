@@ -13,14 +13,13 @@ public class LevelMoveScript : MonoBehaviour
 
     void Update()
     {
-        if (!GM.isPlying)
+        if (GM.isPlying)
         {
-            return;
+            foreach (GameObject i in LI.level_stack)
+            {
+                i.transform.Translate(forward * GM.GetSpeed() * Time.deltaTime);
+            }
+            LI.levelEndTrigger.transform.Translate(forward * GM.GetSpeed() * Time.deltaTime);
         }
-        foreach (GameObject i in LI.level_stack)
-        {
-            i.transform.Translate(forward * GM.GetSpeed() * Time.deltaTime);
-        }
-        LI.levelEndTrigger.transform.Translate(forward * GM.GetSpeed() * Time.deltaTime);
     }
 }
