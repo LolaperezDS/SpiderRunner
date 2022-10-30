@@ -19,8 +19,8 @@ public class GameMaster : MonoBehaviour
         if (newHS > stateOfGame.highscore)
         {
             stateOfGame.highscore = newHS;
+            SaveManager.Save(stateOfGame);
         }
-        SaveManager.Save(stateOfGame);
     }
 
     public bool PossibilityToSpend(int cost)
@@ -50,7 +50,7 @@ public class GameMaster : MonoBehaviour
 
     public float GetSpeed()
     {
-        return Mathf.Sqrt(currentScore + 1);
+        return Mathf.Sqrt((currentScore + 1) * constDifficuilt);
     }
 
     public int GetLengthOfLevel()

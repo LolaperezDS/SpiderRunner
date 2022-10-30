@@ -28,7 +28,7 @@ public class TileFactory : MonoBehaviour
                 currentprefab = TileCDP;
                 break;
             case Tile.UpCoin:
-                currentprefab = TileCDP;
+                currentprefab = TileCUP;
                 break;
             default:
                 currentprefab = TileDefaultP;

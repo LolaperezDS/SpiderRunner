@@ -4,7 +4,9 @@ public class LevelInstantinater : MonoBehaviour
 {
     private GameMaster main;
     private TileFactory tf;
+    [SerializeField] private GameObject lvlEndPrefab;
 
+    public GameObject levelEndTrigger;
     public GameObject[] level_stack;
 
 
@@ -22,13 +24,17 @@ public class LevelInstantinater : MonoBehaviour
         {
             level_stack[i] = tf.InstantinateTile(i, level_raw[i]);
         }
+
+        levelEndTrigger = Instantiate(lvlEndPrefab, new Vector3(level_raw.Length - LevelGenerator.endOffset + LevelGenerator.xOrigin + 2, 0, 0), Quaternion.identity);
     }
 
     public void DestroyCurrentLevel()
     {
         foreach (GameObject i in level_stack)
         {
-            Destroy(i.transform);
+            Destroy(i.gameObject);
         }
+        Destroy(levelEndTrigger.gameObject);
+        InstantinateLevel();
     }
 }
