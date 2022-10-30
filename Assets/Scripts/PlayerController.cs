@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject main;
     [SerializeField] private GameObject anim_new_lvl;
 
+    [SerializeField] private SpriteRenderer renderer;
+
     private bool isBottom = true;
     private Vector3 botPosition = new Vector3(0, -0.6f, 0);
     private Vector3 topPosition = new Vector3(0, 0.6f, 0);
@@ -13,6 +15,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         transform.position = botPosition;
+        renderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     private void Update()
@@ -28,10 +31,12 @@ public class PlayerController : MonoBehaviour
         isBottom = !isBottom;
         if (isBottom)
         {
+            renderer.flipY = false;
             transform.position = botPosition;
         }
         else
         {
+            renderer.flipY = true;
             transform.position = topPosition;
         }
     }
