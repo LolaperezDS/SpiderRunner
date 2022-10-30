@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField] private GameObject main;
+    [SerializeField] private GameObject anim_new_lvl;
 
     private bool isBottom = true;
     private Vector3 botPosition = new Vector3(0, -0.6f, 0);
@@ -59,7 +58,8 @@ public class PlayerController : MonoBehaviour
     private void LevelIsEndFuction()
     {
         Debug.Log("lvl is end");
-        Invoke(nameof(LevelDesroy), 2);
+        Invoke(nameof(LevelDesroy), 1);
+        anim_new_lvl.GetComponent<NewLevelAnimationScript>().NewLevelAnim();
     }
 
     private void LevelDesroy()

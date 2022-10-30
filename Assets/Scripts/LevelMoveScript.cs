@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelMoveScript : MonoBehaviour
@@ -13,7 +11,6 @@ public class LevelMoveScript : MonoBehaviour
         GM = GetComponent<GameMaster>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         foreach (GameObject i in LI.level_stack)

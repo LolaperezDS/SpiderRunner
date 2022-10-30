@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameMaster : MonoBehaviour
@@ -60,13 +58,13 @@ public class GameMaster : MonoBehaviour
 
     public void IncrementCurrentScore()
     {
-        stateOfGame.gold += 1;
-        SaveManager.Save(stateOfGame);
+        currentScore += 1;
     }
 
     public void IncrementGold()
     {
-        currentScore += 1;
+        stateOfGame.gold += 1;
+        SaveManager.Save(stateOfGame);
     }
 
     public int GetCurrentScore()
