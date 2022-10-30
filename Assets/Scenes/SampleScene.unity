@@ -6824,6 +6824,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1839727775}
   - component: {fileID: 1839727774}
+  - component: {fileID: 1839727776}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -6862,6 +6863,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!111 &1839727776
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839727773}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: b858134a9d02f3b49aef679c07ea8aaa, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: b858134a9d02f3b49aef679c07ea8aaa, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1932153722
 GameObject:
   m_ObjectHideFlags: 0
