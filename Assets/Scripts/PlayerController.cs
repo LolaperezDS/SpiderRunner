@@ -3,6 +3,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
+
+    [SerializeField] private ParticleSystem deathPS;
+
     [SerializeField] private GameObject main;
     [SerializeField] private GameObject anim_new_lvl;
     [SerializeField] private GameObject anim_endgame;
@@ -46,6 +49,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
         {
+            deathPS.Play();
             main.GetComponent<GameMaster>().SetHighScore(main.GetComponent<GameMaster>().GetCurrentScore());
             EndOfGame();
         }
