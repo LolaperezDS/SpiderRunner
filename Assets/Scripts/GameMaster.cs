@@ -5,6 +5,7 @@ public class GameMaster : MonoBehaviour
     private DataStruct stateOfGame;
     private int currentScore = 0;
     private int constDifficuilt = 10;
+    public bool isPlying = true;
     void Start()
     {
         FirstRunApp.SetUp();

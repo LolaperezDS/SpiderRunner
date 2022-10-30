@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     [SerializeField] private GameObject main;
     [SerializeField] private GameObject anim_new_lvl;
+    [SerializeField] private GameObject anim_endgame;
 
     [SerializeField] private SpriteRenderer renderer;
 
@@ -45,8 +46,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.layer == 8)
         {
-            EndOfGame();
             main.GetComponent<GameMaster>().SetHighScore(main.GetComponent<GameMaster>().GetCurrentScore());
+            EndOfGame();
         }
         if (collision.gameObject.layer == 7)
         {
@@ -74,6 +75,7 @@ public class PlayerController : MonoBehaviour
 
     private void EndOfGame()
     {
+        anim_endgame.GetComponent<GameOverAnimation>().GameOverAnim();
         Debug.Log("you are dead");
     }
 }

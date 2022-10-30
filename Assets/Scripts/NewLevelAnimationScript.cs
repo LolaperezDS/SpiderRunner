@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,7 +31,7 @@ public class NewLevelAnimationScript : MonoBehaviour
         }
         text.GetComponent<Animation>().Play();
 
-        text.GetComponent<Text>().text = "Level:" + (main.GetComponent<GameMaster>().GetCurrentScore() + 1).ToString();
+        text.GetComponent<Text>().text = "Level: " + (main.GetComponent<GameMaster>().GetCurrentScore() + 2).ToString();
     }
 
     private void AutoDisableCanvas()
