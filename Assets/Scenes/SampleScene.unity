@@ -2597,6 +2597,34 @@ PrefabInstance:
       propertyPath: VelocityModule.inWorldSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 688438966, guid: 13cd1484da8e70b47b9e70952ec3dbd1, type: 3}
+      propertyPath: ShapeModule.alignToDirection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 688438966, guid: 13cd1484da8e70b47b9e70952ec3dbd1, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 688438966, guid: 13cd1484da8e70b47b9e70952ec3dbd1, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 688438966, guid: 13cd1484da8e70b47b9e70952ec3dbd1, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 688438966, guid: 13cd1484da8e70b47b9e70952ec3dbd1, type: 3}
+      propertyPath: InitialModule.startSize.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 688438966, guid: 13cd1484da8e70b47b9e70952ec3dbd1, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 688438966, guid: 13cd1484da8e70b47b9e70952ec3dbd1, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8407390134673862738, guid: 13cd1484da8e70b47b9e70952ec3dbd1, type: 3}
       propertyPath: main
       value: 
