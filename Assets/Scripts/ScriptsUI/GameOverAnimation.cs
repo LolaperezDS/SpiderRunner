@@ -21,6 +21,7 @@ public class GameOverAnimation : MonoBehaviour
     public void GameOverAnim()
     {
         canv.enabled = true;
+        imageBTN.GetComponent<RetryBTN>().RetryDelay();
 
         TextHS.GetComponent<Text>().text = "High Score: " + main.GetComponent<GameMaster>().GetHighScore().ToString();
         TextCS.GetComponent<Text>().text = "Score: " + main.GetComponent<GameMaster>().GetCurrentScore().ToString();

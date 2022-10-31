@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
 
     [SerializeField] private ParticleSystem deathPS;
+    [SerializeField] private ParticleSystem blinkPS;
 
     [SerializeField] private GameObject main;
     [SerializeField] private GameObject anim_new_lvl;
@@ -32,17 +33,22 @@ public class PlayerController : MonoBehaviour
 
     private void Blink()
     {
-        isBottom = !isBottom;
-        if (isBottom)
+        if (main.GetComponent<GameMaster>().isPlying)
         {
-            renderer.flipY = false;
-            transform.position = botPosition;
+            isBottom = !isBottom;
+            if (isBottom)
+            {
+                renderer.flipY = false;
+                transform.position = botPosition;
+            }
+            else
+            {
+                renderer.flipY = true;
+                transform.position = topPosition;
+            }
+            BlinkEffect();
         }
-        else
-        {
-            renderer.flipY = true;
-            transform.position = topPosition;
-        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -89,5 +95,33 @@ public class PlayerController : MonoBehaviour
         main.GetComponent<GameMaster>().isPlying = false;
         Invoke(nameof(LevelDesroy), 1);
         Debug.Log("you are dead");
+    }
+
+
+    private void BlinkEffect()
+    {
+        if (blinkPS.isPlaying)
+        {
+            blinkPS.Stop();
+            blinkPS.Clear();
+        }
+
+        var vo = blinkPS.velocityOverLifetime;
+        var fo = blinkPS.forceOverLifetime;
+
+        vo.x = new ParticleSystem.MinMaxCurve(-2f - main.GetComponent<GameMaster>().GetSpeed(), 2f - main.GetComponent<GameMaster>().GetSpeed());
+
+        if (isBottom)
+        {
+            fo.y = new ParticleSystem.MinMaxCurve(5f);
+            vo.y = new ParticleSystem.MinMaxCurve(-5f, -7f);
+        }
+        else
+        {
+            fo.y = new ParticleSystem.MinMaxCurve(-5f);
+            vo.y = new ParticleSystem.MinMaxCurve(5f, 7f);
+        }
+
+        blinkPS.Play();
     }
 }

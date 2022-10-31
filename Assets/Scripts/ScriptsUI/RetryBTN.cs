@@ -5,30 +5,32 @@ public class RetryBTN : MonoBehaviour
 {
     [SerializeField] private GameObject GameOverAnim;
     [SerializeField] private GameObject Main;
+    private Button btn;
 
-    private bool DoubleClickProtection = true;
     void Start()
     {
-        Button btn = GetComponent<Button>();
-        btn.onClick.AddListener(RetryDelay);
+        btn = GetComponent<Button>();
+        btn.onClick.AddListener(Retry);
+        btn.enabled = false;
     }
 
 
-    private void RetryDelay()
+    public void RetryDelay()
     {
-        if (DoubleClickProtection)
-        {
-            DoubleClickProtection = false;
-            Invoke(nameof(Retry), 1);
-        }
+        Invoke(nameof(ActivateButton), 1.05f);
+    }
+
+    private void ActivateButton()
+    {
+        btn.enabled = true;
     }
 
     private void Retry()
     {
+        btn.enabled = false;
         GameOverAnim.GetComponent<GameOverAnimation>().canv.enabled = false;
         Main.GetComponent<LevelInstantinater>().InstantinateLevel();
         Main.GetComponent<GameMaster>().isPlying = true;
         Main.GetComponent<GameMaster>().currentScore = 0;
-        DoubleClickProtection = true;
     }
 }
