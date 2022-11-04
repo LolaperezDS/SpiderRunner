@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private IBlink blink_effect;
 
     [SerializeField] private ParticleSystem deathPS;
     [SerializeField] private ParticleSystem blinkPS;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         transform.position = botPosition;
         renderer = GetComponentInChildren<SpriteRenderer>();
+        blink_effect = GetComponentInChildren<IBlink>();
     }
 
     private void Update()
@@ -100,28 +102,25 @@ public class PlayerController : MonoBehaviour
 
     private void BlinkEffect()
     {
-        if (blinkPS.isPlaying)
+        if (blink_effect != null)
         {
-            blinkPS.Stop();
-            blinkPS.Clear();
-        }
-
-        var vo = blinkPS.velocityOverLifetime;
-        var fo = blinkPS.forceOverLifetime;
-
-        vo.x = new ParticleSystem.MinMaxCurve(-2f - main.GetComponent<GameMaster>().GetSpeed(), 2f - main.GetComponent<GameMaster>().GetSpeed());
-
-        if (isBottom)
-        {
-            fo.y = new ParticleSystem.MinMaxCurve(5f);
-            vo.y = new ParticleSystem.MinMaxCurve(-5f, -7f);
+            if (isBottom)
+            {
+                blink_effect.BlinkUp();
+            }
+            else
+            {
+                blink_effect.BlinkDown();
+            }
         }
         else
         {
-            fo.y = new ParticleSystem.MinMaxCurve(-5f);
-            vo.y = new ParticleSystem.MinMaxCurve(5f, 7f);
+            Debug.LogError("Effect of blink is NONE");
         }
+    }
 
-        blinkPS.Play();
+    public float GetSpeed()
+    {
+        return main.GetComponent<GameMaster>().GetSpeed();
     }
 }

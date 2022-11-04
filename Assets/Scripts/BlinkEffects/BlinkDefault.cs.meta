@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: ed83d75f05c91c84aa23f4452762a1e1
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - BlinkPrefab: {fileID: 2241187614302463102, guid: ebfc465253e3d27488ec12b2f1e079eb, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
