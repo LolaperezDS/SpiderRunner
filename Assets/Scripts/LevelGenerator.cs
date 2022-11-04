@@ -18,8 +18,8 @@ public static class LevelGenerator
 
     public static Tile[] GeneratrLevel(int duration)
     {
-        Tile[] level = new Tile[startOffset + duration + endOffset];
-        for (int i = 0; i < startOffset; i++)
+        Tile[] level = new Tile[startOffset + (int)(1.5 * duration) + endOffset];
+        for (int i = 0; i < startOffset + (int)(duration / 2); i++)
         {
             level[i] = Tile.Default;
         }
@@ -29,35 +29,36 @@ public static class LevelGenerator
         for (int i = 0; i < duration; i++)
         {
             int chance = Random.Range(0, 5);
+            ref Tile curent_tile = ref level[startOffset + (int)(duration / 2) + i];
             switch (chance)
             {
                 case 0:
-                    level[startOffset + i] = Tile.Default;
+                    curent_tile = Tile.Default;
                     break;
                 case 1:
-                    level[startOffset + i] = Tile.UpCoin;
+                    curent_tile = Tile.UpCoin;
                     break;
                 case 2:
-                    level[startOffset + i] = Tile.DownCoin;
+                    curent_tile = Tile.DownCoin;
                     break;
                 case 3:
-                    if (level[startOffset + i - 1] != Tile.DownSpike)
+                    if (curent_tile != Tile.DownSpike)
                     {
-                        level[startOffset + i] = Tile.UpSpike;
+                        curent_tile = Tile.UpSpike;
                     }
                     else
                     {
-                        level[startOffset + i] = Tile.Default;
+                        curent_tile = Tile.Default;
                     }
                     break;
                 case 4:
-                    if (level[startOffset + i - 1] != Tile.UpSpike)
+                    if (curent_tile != Tile.UpSpike)
                     {
-                        level[startOffset + i] = Tile.DownSpike;
+                        curent_tile = Tile.DownSpike;
                     }
                     else
                     {
-                        level[startOffset + i] = Tile.Default;
+                        curent_tile = Tile.Default;
                     }
                     break;
                 default:
@@ -69,7 +70,7 @@ public static class LevelGenerator
 
         for (int i = 0; i < endOffset; i++)
         {
-            level[startOffset + duration + i] = Tile.Default;
+            level[startOffset + (int)(duration / 2) + duration + i] = Tile.Default;
         }
         return level;
     }

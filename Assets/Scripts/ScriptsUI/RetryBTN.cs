@@ -29,8 +29,8 @@ public class RetryBTN : MonoBehaviour
     {
         btn.enabled = false;
         GameOverAnim.GetComponent<GameOverAnimation>().canv.enabled = false;
+        Main.GetComponent<GameMaster>().currentScore = 0;
         Main.GetComponent<LevelInstantinater>().InstantinateLevel();
         Main.GetComponent<GameMaster>().isPlying = true;
-        Main.GetComponent<GameMaster>().currentScore = 0;
     }
 }
