@@ -42,7 +42,7 @@ public static class LevelGenerator
                     curent_tile = Tile.DownCoin;
                     break;
                 case 3:
-                    if (curent_tile != Tile.DownSpike)
+                    if (level[startOffset + (int)(duration / 2) + i - 1] != Tile.DownSpike)
                     {
                         curent_tile = Tile.UpSpike;
                     }
@@ -52,7 +52,7 @@ public static class LevelGenerator
                     }
                     break;
                 case 4:
-                    if (curent_tile != Tile.UpSpike)
+                    if (level[startOffset + (int)(duration / 2) + i - 1] != Tile.UpSpike)
                     {
                         curent_tile = Tile.DownSpike;
                     }
