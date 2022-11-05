@@ -8,6 +8,7 @@ public class GameMaster : MonoBehaviour
     public bool isPlying = true;
     void Start()
     {
+        Application.targetFrameRate = 120;
         FirstRunApp.SetUp();
         stateOfGame = SaveManager.Load();
         GetComponent<LevelInstantinater>().InstantinateLevel();
