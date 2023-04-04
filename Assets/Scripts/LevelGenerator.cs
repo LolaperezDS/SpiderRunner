@@ -12,9 +12,13 @@ public enum Tile
 
 public static class LevelGenerator
 {
-    public static int startOffset = 30;
-    public static int endOffset = 30;
-    public static int xOrigin = -20;
+    [SerializeField] static private int startOffset = 30;
+    [SerializeField] static private int endOffset = 30;
+    [SerializeField] static private int xOrigin = -20;
+
+    public static int StartOffset => startOffset;
+    public static int EndOffset => endOffset;
+    public static int XOrigin => xOrigin;
 
     public static Tile[] GeneratrLevel(int duration)
     {

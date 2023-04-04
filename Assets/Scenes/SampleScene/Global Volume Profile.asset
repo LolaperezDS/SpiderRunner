@@ -15,7 +15,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.35
+    m_Value: 0.195
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,10 +53,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.298
+    m_Value: 0.262
   smoothness:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.909
   rounded:
     m_OverrideState: 1
     m_Value: 0
@@ -75,13 +75,13 @@ MonoBehaviour:
   active: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.51
+    m_Value: 0.03
   intensity:
     m_OverrideState: 1
-    m_Value: 3.91
+    m_Value: 1.11
   scatter:
-    m_OverrideState: 0
-    m_Value: 0.438
+    m_OverrideState: 1
+    m_Value: 0.662
   clamp:
     m_OverrideState: 0
     m_Value: 65472
@@ -100,4 +100,4 @@ MonoBehaviour:
     dimension: 1
   dirtIntensity:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 9.67

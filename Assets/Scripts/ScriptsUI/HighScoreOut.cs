@@ -5,13 +5,6 @@ public class HighScoreOut : MonoBehaviour
 {
     private Text hs_text;
     [SerializeField] private GameObject main;
-    private void Start()
-    {
-        hs_text = GetComponent<Text>();
-    }
-
-    private void Update()
-    {
-        hs_text.text = main.GetComponent<GameMaster>().GetCurrentScore().ToString();
-    }
+    private void Start() => hs_text = GetComponent<Text>();
+    private void Update() => hs_text.text = main.GetComponent<GameMaster>().GetCurrentScore().ToString();
 }

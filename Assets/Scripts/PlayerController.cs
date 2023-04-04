@@ -27,27 +27,17 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Blink();
-        }
+        if (Input.GetButtonDown("Fire1")) Blink();
     }
 
     private void Blink()
     {
-        if (main.GetComponent<GameMaster>().isPlying)
+        if (main.GetComponent<GameMaster>().isRunning)
         {
+            renderer.flipY = isBottom;
             isBottom = !isBottom;
-            if (isBottom)
-            {
-                renderer.flipY = false;
-                transform.position = botPosition;
-            }
-            else
-            {
-                renderer.flipY = true;
-                transform.position = topPosition;
-            }
+            if (isBottom) transform.position = botPosition;
+            else transform.position = topPosition;
             BlinkEffect();
         }
         
@@ -75,26 +65,18 @@ public class PlayerController : MonoBehaviour
 
     private void LevelIsEndFuction()
     {
-        Debug.Log("lvl is end");
         Invoke(nameof(LevelDesroy), 1);
         Invoke(nameof(LevelCreate), 1);
         anim_new_lvl.GetComponent<NewLevelAnimationScript>().NewLevelAnim();
     }
 
-    private void LevelDesroy()
-    {
-        main.GetComponent<LevelInstantinater>().DestroyCurrentLevel();
-    }
-
-    private void LevelCreate()
-    {
-        main.GetComponent<LevelInstantinater>().InstantinateLevel();
-    }
+    private void LevelDesroy() => main.GetComponent<LevelInstantinater>().DestroyCurrentLevel();
+    private void LevelCreate() => main.GetComponent<LevelInstantinater>().InstantinateLevel();
 
     private void EndOfGame()
     {
         anim_endgame.GetComponent<GameOverAnimation>().GameOverAnim();
-        main.GetComponent<GameMaster>().isPlying = false;
+        main.GetComponent<GameMaster>().isRunning = false;
         Invoke(nameof(LevelDesroy), 1);
         Debug.Log("you are dead");
     }
@@ -104,23 +86,11 @@ public class PlayerController : MonoBehaviour
     {
         if (blink_effect != null)
         {
-            if (isBottom)
-            {
-                blink_effect.BlinkUp();
-            }
-            else
-            {
-                blink_effect.BlinkDown();
-            }
+            if (isBottom) blink_effect.BlinkUp();
+            else blink_effect.BlinkDown();
         }
-        else
-        {
-            Debug.LogError("Effect of blink is NONE");
-        }
+        else Debug.LogError("Effect of blink is NONE");
     }
 
-    public float GetSpeed()
-    {
-        return main.GetComponent<GameMaster>().GetSpeed();
-    }
+    public float GetSpeed() => main.GetComponent<GameMaster>().GetSpeed();
 }

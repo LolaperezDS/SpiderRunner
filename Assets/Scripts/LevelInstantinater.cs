@@ -20,20 +20,13 @@ public class LevelInstantinater : MonoBehaviour
         Tile[] level_raw = LevelGenerator.GeneratrLevel(main.GetLengthOfLevel());
         level_stack = new GameObject[level_raw.Length];
 
-        for (int i = 0; i < level_raw.Length; i++)
-        {
-            level_stack[i] = tf.InstantinateTile(i, level_raw[i]);
-        }
-
-        levelEndTrigger = Instantiate(lvlEndPrefab, new Vector3(level_raw.Length - LevelGenerator.endOffset + LevelGenerator.xOrigin + 2, 0, 0), Quaternion.identity);
+        for (int i = 0; i < level_raw.Length; i++) level_stack[i] = tf.InstantinateTile(i, level_raw[i]);
+        levelEndTrigger = Instantiate(lvlEndPrefab, new Vector3(level_raw.Length - LevelGenerator.EndOffset + LevelGenerator.XOrigin + 2, 0, 0), Quaternion.identity);
     }
 
     public void DestroyCurrentLevel()
     {
-        foreach (GameObject i in level_stack)
-        {
-            Destroy(i.gameObject);
-        }
+        foreach (GameObject i in level_stack) Destroy(i.gameObject);
         Destroy(levelEndTrigger.gameObject);
     }
 }

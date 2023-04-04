@@ -13,24 +13,14 @@ public class RetryBTN : MonoBehaviour
         btn.onClick.AddListener(Retry);
         btn.enabled = false;
     }
-
-
-    public void RetryDelay()
-    {
-        Invoke(nameof(ActivateButton), 1.05f);
-    }
-
-    private void ActivateButton()
-    {
-        btn.enabled = true;
-    }
-
+    public void RetryDelay() => Invoke(nameof(ActivateButton), 1.05f);
+    private void ActivateButton() => btn.enabled = true;
     private void Retry()
     {
         btn.enabled = false;
         GameOverAnim.GetComponent<GameOverAnimation>().canv.enabled = false;
         Main.GetComponent<GameMaster>().currentScore = 0;
         Main.GetComponent<LevelInstantinater>().InstantinateLevel();
-        Main.GetComponent<GameMaster>().isPlying = true;
+        Main.GetComponent<GameMaster>().isRunning = true;
     }
 }

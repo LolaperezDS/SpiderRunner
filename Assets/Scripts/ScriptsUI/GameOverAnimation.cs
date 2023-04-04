@@ -13,10 +13,7 @@ public class GameOverAnimation : MonoBehaviour
     [SerializeField] private GameObject TextCS;
     [SerializeField] private GameObject imageBTN;
     [SerializeField] private GameObject TextBTN;
-    void Start()
-    {
-        canv = GetComponent<Canvas>();
-    }
+    void Start() => canv = GetComponent<Canvas>();
 
     public void GameOverAnim()
     {

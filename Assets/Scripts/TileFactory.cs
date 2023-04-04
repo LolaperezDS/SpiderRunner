@@ -32,6 +32,6 @@ public class TileFactory : MonoBehaviour
                 currentprefab = TileDefaultP;
                 break;
         }
-        return Instantiate(currentprefab, new Vector3(xcoord + LevelGenerator.xOrigin, 0, 0), Quaternion.identity);
+        return Instantiate(currentprefab, new Vector3(xcoord + LevelGenerator.XOrigin, 0, 0), Quaternion.identity);
     }
 }

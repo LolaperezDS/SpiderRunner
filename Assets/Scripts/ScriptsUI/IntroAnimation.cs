@@ -10,15 +10,8 @@ public class IntroAnimation : MonoBehaviour
         canv = GetComponent<Canvas>();
         canv.enabled = true;
         Invoke(nameof(AutoDisableCanvas), anim_time);
-        if (image.GetComponent<Animation>().isPlaying)
-        {
-            image.GetComponent<Animation>().Stop();
-        }
+        if (image.GetComponent<Animation>().isPlaying) image.GetComponent<Animation>().Stop();
         image.GetComponent<Animation>().Play();
     }
-
-    private void AutoDisableCanvas()
-    {
-        canv.enabled = false;
-    }
+    private void AutoDisableCanvas() => canv.enabled = false;
 }

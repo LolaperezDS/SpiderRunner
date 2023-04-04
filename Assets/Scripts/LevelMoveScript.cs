@@ -2,24 +2,19 @@ using UnityEngine;
 
 public class LevelMoveScript : MonoBehaviour
 {
-    private LevelInstantinater LI;
-    private GameMaster GM;
+    private LevelInstantinater levelInstantinater;
+    private GameMaster gameMaster;
     public Vector3 forward = Vector3.left;
     void Start()
     {
-        LI = GetComponent<LevelInstantinater>();
-        GM = GetComponent<GameMaster>();
+        levelInstantinater = GetComponent<LevelInstantinater>();
+        gameMaster = GetComponent<GameMaster>();
     }
 
     void Update()
     {
-        if (GM.isPlying)
-        {
-            foreach (GameObject i in LI.level_stack)
-            {
-                i.transform.Translate(forward * GM.GetSpeed() * Time.deltaTime);
-            }
-            LI.levelEndTrigger.transform.Translate(forward * GM.GetSpeed() * Time.deltaTime);
-        }
+        if (!gameMaster.isRunning) return;
+        foreach (GameObject i in levelInstantinater.level_stack) i.transform.Translate(forward * gameMaster.GetSpeed() * Time.deltaTime);
+        levelInstantinater.levelEndTrigger.transform.Translate(forward * gameMaster.GetSpeed() * Time.deltaTime);
     }
 }
